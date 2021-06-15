@@ -1,0 +1,18 @@
+<html>
+    <body style="background-color:powderblue;">
+        <br><br>
+        <h1 align="center">Witaj w naszym paczkomacie!<br><br>
+        Wybierz akcję:
+            <br>
+            <button id="demo" onclick="myFunc()">Odbierz paczkę</button>
+            <button>Złóż reklamację</button>
+        </h1>
+    <script>
+        function myFunc() {
+            window.history.pushState('number', 'Title', '/number');
+            location.reload();
+        }
+    </script>
+
+    </body>
+</html>
