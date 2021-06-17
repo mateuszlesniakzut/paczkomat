@@ -1,0 +1,22 @@
+<html>
+    <body style="background-color:powderblue;">
+        <br><br>
+        <h1 align="center">Wprowadź dane logowania<br><br>
+            <form action="/checking_logging">
+                <label>Login:</label><br>
+                <input type="text" name="login"><br>
+                <label>Hasło:</label><br>
+                <input type="password" name="password"><br>
+                <input type="submit" value="Submit">
+            </form>
+            <button id="demo" onclick="backToNumber()">Powrót</button>
+        </h1>
+
+    <script>
+        function backToNumber() {
+            window.history.pushState('number', 'Title', '/number');
+            location.reload();
+        }
+    </script>
+    </body>
+</html>

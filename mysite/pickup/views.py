@@ -19,6 +19,7 @@ def checking_number(request):
     myquery.execute("select * from io.zamówienie")
     found = False
     global code
+    code = []
     for q in myquery:
         if (str(request.GET['telnumber']) == str(q[5])):
             found = True
@@ -40,6 +41,7 @@ def checking_payment(request):
     myquery.execute("select * from io.zamówienie inner join io.opłata on io.zamówienie.ID_opłata_FK = io.opłata.ID_opłata_PK")
     found = False
     for q in myquery:
+        print(q)
         if (str(q[5]) == str(code[0][5]) and str(q[6]) == str(code[0][6])):
             found = True
     if found:
@@ -47,4 +49,18 @@ def checking_payment(request):
     else:
         return render(request, "wrong_payment.html")
 
-# Create your views here.
+def logging(request):
+    return render(request, "logging.html")
+
+def checking_logging(request):
+    connection = mysql.connector.connect(user='root', host='localhost', port='3306', password='root')
+    myquery = connection.cursor()
+    myquery.execute("select * from io.użytkownik")
+    found = False
+    for q in myquery:
+        if (str(request.GET['login']) == str(q[1]) and str(request.GET['password']) == str(q[2])):
+            found = True
+    if found:
+        return render(request, "admin_panel.html")
+    else:
+        return render(request, "wrong_login.html")

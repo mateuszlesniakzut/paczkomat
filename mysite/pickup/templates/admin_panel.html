@@ -1,0 +1,16 @@
+<html>
+    <body style="background-color:powderblue;">
+        <br><br>
+        <h1 align="center">Zalogowałeś/aś się do panelu admina!<br><br>
+            <button id="demo" onclick="backToCode()">Powrót</button>
+
+        </h1>
+
+    <script>
+        function backToCode() {
+            window.history.pushState('index', 'Title', '/');
+            location.reload();
+        }
+    </script>
+    </body>
+</html>
